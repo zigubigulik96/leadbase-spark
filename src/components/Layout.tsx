@@ -112,8 +112,8 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-10 pt-6 border-t border-border">
-          <div className="max-w-md">
+        <div className="mt-10 pt-6 border-t border-border text-center">
+          <div className="max-w-md mx-auto">
             <h4 className="font-heading text-sm font-semibold text-foreground mb-1">Newsletter</h4>
             <p className="text-sm text-muted-foreground mb-3">Shopify tips & app updates, no spam.</p>
             <NewsletterForm />
