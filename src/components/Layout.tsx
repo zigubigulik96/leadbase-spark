@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -109,6 +110,13 @@ function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>
             </ul>
+          </div>
+        </div>
+        <div className="mt-10 pt-6 border-t border-border">
+          <div className="max-w-md">
+            <h4 className="font-heading text-sm font-semibold text-foreground mb-1">Newsletter</h4>
+            <p className="text-sm text-muted-foreground mb-3">Shopify tips & app updates, no spam.</p>
+            <NewsletterForm />
           </div>
         </div>
         <div className="mt-10 pt-6 border-t border-border text-center text-xs text-muted-foreground">

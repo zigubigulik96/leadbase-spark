@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import FadeIn from "@/components/FadeIn";
 import BlogCard from "@/components/BlogCard";
 import { blogPosts, blogCategories } from "@/data/blog";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export default function Blog() {
   const [active, setActive] = useState("All");
@@ -69,6 +70,15 @@ export default function Blog() {
           {filtered.length === 0 && (
             <p className="text-center text-muted-foreground py-12">No posts found.</p>
           )}
+
+          {/* Newsletter */}
+          <FadeIn delay={0.2}>
+            <div className="mt-16 rounded-2xl bg-muted/60 border border-border p-8 sm:p-12 text-center">
+              <h2 className="font-heading text-2xl font-bold text-foreground">Stay in the loop</h2>
+              <p className="mt-2 text-muted-foreground max-w-md mx-auto">Get Shopify tips, app updates, and growth strategies delivered to your inbox.</p>
+              <NewsletterForm className="mt-6 max-w-md mx-auto" />
+            </div>
+          </FadeIn>
         </div>
       </section>
     </Layout>
