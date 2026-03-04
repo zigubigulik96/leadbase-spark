@@ -121,14 +121,16 @@ export default function Home() {
             </FadeIn>
           </div>
           <FadeIn delay={0.2}>
-            <div className="mt-10 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-2 text-sm text-muted-foreground">
               <span className="font-medium text-foreground">Our process:</span>
-              {processSteps.map((s, i) => (
-                <span key={s} className="flex items-center gap-2">
-                  <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">{s}</span>
-                  {i < processSteps.length - 1 && <ArrowRight size={12} className="text-muted-foreground/50" />}
-                </span>
-              ))}
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {processSteps.map((s, i) => (
+                  <span key={s} className="flex items-center gap-2">
+                    <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">{s}</span>
+                    {i < processSteps.length - 1 && <ArrowRight size={12} className="hidden sm:block text-muted-foreground/50" />}
+                  </span>
+                ))}
+              </div>
             </div>
           </FadeIn>
         </div>
