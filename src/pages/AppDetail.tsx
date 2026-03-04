@@ -2,13 +2,27 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowRight, Star, CheckCircle2, Package, MessageSquare } from "lucide-react";
 import Layout from "@/components/Layout";
 import FadeIn from "@/components/FadeIn";
-import { getAppBySlug } from "@/data/apps";
+import { useApp } from "@/hooks/useApps";
 
 export default function AppDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const app = getAppBySlug(slug || "");
+  const { data: app, isLoading, isError } = useApp(slug || "");
 
-  if (!app) {
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="section-padding">
+          <div className="container-tight space-y-6 animate-pulse">
+            <div className="h-16 w-16 rounded-2xl bg-muted" />
+            <div className="h-8 w-64 rounded-lg bg-muted" />
+            <div className="h-4 w-96 rounded bg-muted" />
+          </div>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (isError || !app) {
     return (
       <Layout>
         <div className="section-padding text-center">
@@ -180,10 +194,7 @@ export default function AppDetail() {
           <FadeIn>
             <h2 className="font-heading text-2xl font-bold text-primary-foreground">Need customization?</h2>
             <p className="mt-2 text-primary-foreground/80 text-sm">We can build custom features or integrations for your store.</p>
-            <Link
-              to="/contact"
-              className="mt-5 inline-flex items-center justify-center rounded-lg bg-card text-foreground px-6 py-3 text-sm font-semibold shadow-sm hover:opacity-90"
-            >
+            <Link to="/contact" className="mt-5 inline-flex items-center justify-center rounded-lg bg-card text-foreground px-6 py-3 text-sm font-semibold shadow-sm hover:opacity-90">
               Contact Lead Base
             </Link>
           </FadeIn>

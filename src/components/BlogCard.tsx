@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { BlogPost } from "@/data/blog";
+import type { BlogPost } from "@/hooks/useBlog";
 
 export default function BlogCard({ post }: { post: BlogPost }) {
   return (
@@ -7,13 +7,17 @@ export default function BlogCard({ post }: { post: BlogPost }) {
       to={`/blog/${post.slug}`}
       className="group block rounded-xl border border-border bg-card overflow-hidden shadow-card transition-all hover:shadow-hover hover:-translate-y-0.5"
     >
-      <div className="aspect-[16/9] bg-muted flex items-center justify-center">
-        <span className="text-3xl font-heading font-bold text-muted-foreground/30">LB</span>
+      <div className="aspect-[16/9] bg-muted flex items-center justify-center overflow-hidden">
+        {post.image ? (
+          <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+        ) : (
+          <span className="text-3xl font-heading font-bold text-muted-foreground/30">LB</span>
+        )}
       </div>
       <div className="p-5">
         <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
           <span className="rounded-full bg-primary/10 px-2.5 py-0.5 font-medium text-primary">{post.category}</span>
-          <span>{post.date}</span>
+          <span>{post.publishedAt}</span>
           <span>·</span>
           <span>{post.readingTime}</span>
         </div>

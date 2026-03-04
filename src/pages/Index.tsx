@@ -4,8 +4,8 @@ import Layout from "@/components/Layout";
 import FadeIn from "@/components/FadeIn";
 import AppCard from "@/components/AppCard";
 import BlogCard from "@/components/BlogCard";
-import { apps } from "@/data/apps";
-import { blogPosts } from "@/data/blog";
+import { useApps } from "@/hooks/useApps";
+import { useBlogPosts } from "@/hooks/useBlog";
 
 const benefits = [
   { icon: ShieldCheck, title: "Shopify Expertise", desc: "Deep knowledge of Liquid, themes, checkout, and the app ecosystem." },
@@ -18,6 +18,8 @@ const benefits = [
 const processSteps = ["Audit", "Plan", "Build", "QA", "Launch"];
 
 export default function Home() {
+  const { data: apps = [] } = useApps();
+  const { data: blogPosts = [] } = useBlogPosts();
   return (
     <Layout>
       {/* Hero */}
