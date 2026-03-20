@@ -28,6 +28,7 @@ export const apps = pgTable("apps", {
     id: uuid("id").primaryKey().defaultRandom(),
     slug: text("slug").notNull().unique(),
     name: text("name").notNull(),
+    logo: text("logo"),
     tagline: text("tagline").notNull(),
     description: text("description").notNull(),
     category: text("category").notNull(),
@@ -58,7 +59,19 @@ export const blogPosts = pgTable("blog_posts", {
     createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+// ──────────────────────────────────────────────────────────────
+// Newsletter Subscribers
+// ──────────────────────────────────────────────────────────────
+
+export const newsletterSubscribers = pgTable("newsletter_subscribers", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    email: text("email").notNull().unique(),
+    subscribedAt: timestamp("subscribed_at").defaultNow().notNull(),
+});
+
 export type App = typeof apps.$inferSelect;
 export type NewApp = typeof apps.$inferInsert;
 export type BlogPost = typeof blogPosts.$inferSelect;
 export type NewBlogPost = typeof blogPosts.$inferInsert;
+export type NewsletterSubscriber = typeof newsletterSubscribers.$inferSelect;
+export type NewNewsletterSubscriber = typeof newsletterSubscribers.$inferInsert;

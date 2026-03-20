@@ -4,6 +4,7 @@ import cors from "@fastify/cors";
 import { appsRoutes } from "./routes/apps.js";
 import { blogRoutes } from "./routes/blog.js";
 import { authRoutes } from "./routes/auth.js";
+import { newsletterRoutes } from "./routes/newsletter.js";
 
 const app = Fastify({ logger: true, bodyLimit: 5242880 }); // 5MB limit for base64 image uploads
 
@@ -15,6 +16,7 @@ await app.register(cors, {
 app.register(appsRoutes, { prefix: "/api" });
 app.register(blogRoutes, { prefix: "/api" });
 app.register(authRoutes, { prefix: "/api" });
+app.register(newsletterRoutes, { prefix: "/api" });
 
 // Health check
 app.get("/health", async () => ({ status: "ok" }));

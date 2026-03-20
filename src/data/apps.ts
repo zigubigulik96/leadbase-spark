@@ -1,6 +1,7 @@
 export interface App {
   slug: string;
   name: string;
+  logo?: string;
   tagline: string;
   description: string;
   category: string;

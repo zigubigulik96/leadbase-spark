@@ -210,7 +210,7 @@ function BlogForm({
 // ──────────────────────────────────────────────────────────────
 
 const emptyApp: NewApp = {
-    slug: "", name: "", tagline: "", description: "", category: "",
+    slug: "", name: "", logo: "", tagline: "", description: "", category: "",
     rating: 4.5, merchants: "0",
     features: [], pricing: [], howItWorks: [], faqs: [],
 };
@@ -234,6 +234,23 @@ function AppForm({
 
     const set = (k: keyof NewApp) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
         setForm((p) => ({ ...p, [k]: k === "rating" ? Number(e.target.value) : e.target.value }));
+
+    const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        if (file.size > 4 * 1024 * 1024) {
+            alert("File is too large. Please select an image under 4MB.");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const base64String = reader.result as string;
+            setForm((p) => ({ ...p, logo: base64String }));
+        };
+        reader.readAsDataURL(file);
+    };
 
     const handleSave = () => {
         try {
@@ -264,6 +281,29 @@ function AppForm({
             <div>
                 <label className="block text-xs font-medium text-foreground mb-1">Name *</label>
                 <Input placeholder="App Name" value={form.name} onChange={set("name")} />
+            </div>
+            <div>
+                <label className="block text-xs font-medium text-foreground mb-1">App Logo (Base64 Image)</label>
+                <div className="flex items-center gap-4">
+                    <Input type="file" accept="image/*" onChange={handleImageUpload} className="flex-1" />
+                    {form.logo && (
+                        <div className="flex items-center gap-2">
+                            <div className="h-10 w-10 shrink-0 overflow-hidden rounded border border-border">
+                                <img src={form.logo} alt="Preview" className="h-full w-full object-cover" />
+                            </div>
+                            <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                className="h-8 px-2 text-xs text-destructive border-destructive/20 hover:bg-destructive/10"
+                                onClick={() => setForm(p => ({ ...p, logo: "" }))}
+                            >
+                                <Trash2 size={12} className="mr-1" /> Remove
+                            </Button>
+                        </div>
+                    )}
+                </div>
+                {form.logo && <p className="text-[10px] text-muted-foreground mt-1 truncate">Image uploaded and ready.</p>}
             </div>
             <div>
                 <label className="block text-xs font-medium text-foreground mb-1">Tagline *</label>
@@ -504,7 +544,8 @@ function AppsTab() {
                                 <p className="text-sm font-medium text-card-foreground">{app.name}</p>
                                 <p className="text-xs text-muted-foreground mt-0.5">
                                     <span className="rounded-full bg-primary/10 text-primary px-2 py-0.5 mr-2">{app.category}</span>
-                                    ★ {app.rating} · {app.merchants} merchants
+                                    {app.rating > 0 ? `★ ${app.rating} · ` : ""}
+                                    {app.merchants} merchants
                                 </p>
                             </div>
                             <div className="flex gap-2 shrink-0 ml-4">

@@ -58,8 +58,10 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* Team placeholder */}
+      {/* 
+    team placeholder
+  
+      
       <section className="section-padding bg-muted/30">
         <div className="container-tight text-center">
           <FadeIn>
@@ -76,7 +78,7 @@ export default function About() {
           </FadeIn>
         </div>
       </section>
-
+*/}
       <section className="section-padding bg-primary">
         <div className="container-tight text-center">
           <FadeIn>

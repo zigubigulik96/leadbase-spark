@@ -45,15 +45,25 @@ export default function AppDetail() {
               <span className="text-foreground">{app.name}</span>
             </div>
             <div className="flex items-start gap-5">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                <Package size={32} />
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary overflow-hidden">
+                {app.logo ? (
+                  <img src={app.logo} alt={`${app.name} logo`} className="h-full w-full object-cover" />
+                ) : (
+                  <Package size={32} />
+                )}
               </div>
               <div>
                 <h1 className="font-heading text-3xl sm:text-4xl font-bold text-foreground">{app.name}</h1>
                 <p className="mt-2 text-lg text-muted-foreground">{app.tagline}</p>
                 <div className="mt-3 flex items-center gap-3 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1"><Star size={14} className="fill-accent text-accent" /> {app.rating}</span>
-                  <span>·</span>
+                  {app.rating > 0 && (
+                    <>
+                      <span className="flex items-center gap-1">
+                        <Star size={14} className="fill-accent text-accent" /> {app.rating}
+                      </span>
+                      <span>·</span>
+                    </>
+                  )}
                   <span>{app.merchants} merchants</span>
                 </div>
                 <div className="mt-5 flex flex-col sm:flex-row gap-3">
@@ -74,7 +84,10 @@ export default function AppDetail() {
       <section className="section-padding">
         <div className="container-tight">
           <FadeIn>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">{app.description}</p>
+            <div 
+              className="prose prose-sm sm:prose-base dark:prose-invert max-w-3xl prose-headings:font-heading prose-headings:text-foreground prose-headings:font-semibold prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-p:text-muted-foreground prose-p:leading-relaxed prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground prose-strong:font-semibold prose-hr:border-border prose-ul:text-muted-foreground prose-li:text-muted-foreground marker:text-muted-foreground prose-li:marker:text-primary" 
+              dangerouslySetInnerHTML={{ __html: app.description }} 
+            />
           </FadeIn>
         </div>
       </section>

@@ -24,6 +24,7 @@ export interface App {
     id: string;
     slug: string;
     name: string;
+    logo?: string;
     tagline: string;
     description: string;
     category: string;

@@ -8,6 +8,7 @@ import { apiKeyHook } from "../middleware/apiKey.js";
 const AppSchema = z.object({
     slug: z.string().min(1),
     name: z.string().min(1),
+    logo: z.string().optional(),
     tagline: z.string().min(1),
     description: z.string().min(1),
     category: z.string().min(1),
