@@ -69,9 +69,22 @@ export const newsletterSubscribers = pgTable("newsletter_subscribers", {
     subscribedAt: timestamp("subscribed_at").defaultNow().notNull(),
 });
 
+export const quotes = pgTable("quotes", {
+    id: uuid("id").primaryKey().defaultRandom(),
+    name: text("name").notNull(),
+    email: text("email").notNull(),
+    storeUrl: text("store_url"),
+    needs: text("needs").notNull(),
+    budget: text("budget"),
+    timeline: text("timeline"),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export type App = typeof apps.$inferSelect;
 export type NewApp = typeof apps.$inferInsert;
 export type BlogPost = typeof blogPosts.$inferSelect;
 export type NewBlogPost = typeof blogPosts.$inferInsert;
 export type NewsletterSubscriber = typeof newsletterSubscribers.$inferSelect;
 export type NewNewsletterSubscriber = typeof newsletterSubscribers.$inferInsert;
+export type Quote = typeof quotes.$inferSelect;
+export type NewQuote = typeof quotes.$inferInsert;

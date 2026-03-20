@@ -5,10 +5,39 @@ import FadeIn from "@/components/FadeIn";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      storeUrl: formData.get("storeUrl"),
+      needs: formData.get("needs"),
+      budget: formData.get("budget"),
+      timeline: formData.get("timeline"),
+    };
+
+    try {
+      const response = await fetch("http://localhost:3001/api/quotes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        console.error("Failed to submit quote");
+      }
+    } catch (error) {
+      console.error("Error submitting quote", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -35,25 +64,25 @@ export default function Contact() {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-sm font-medium text-foreground mb-1.5">Name *</label>
-                        <input required type="text" className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="Your name" />
+                        <input required name="name" type="text" className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="Your name" />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-foreground mb-1.5">Email *</label>
-                        <input required type="email" className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="you@example.com" />
+                        <input required name="email" type="email" className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="you@example.com" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-1.5">Store URL</label>
-                      <input type="url" className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="https://your-store.myshopify.com" />
+                      <input type="text" name="storeUrl" className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" placeholder="example.com" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-1.5">What do you need? *</label>
-                      <textarea required rows={4} className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none" placeholder="Describe what you need help with..." />
+                      <textarea required name="needs" rows={4} className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring resize-none" placeholder="Describe what you need help with..." />
                     </div>
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-sm font-medium text-foreground mb-1.5">Budget Range</label>
-                        <select className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+                        <select name="budget" className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
                           <option value="">Select...</option>
                           <option>Under $500</option>
                           <option>$500 – $2,000</option>
@@ -63,7 +92,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-foreground mb-1.5">Timeline</label>
-                        <select className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
+                        <select name="timeline" className="w-full rounded-lg border border-input bg-card px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
                           <option value="">Select...</option>
                           <option>ASAP</option>
                           <option>1–2 weeks</option>
@@ -74,9 +103,10 @@ export default function Contact() {
                     </div>
                     <button
                       type="submit"
-                      className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:opacity-90 transition-all"
+                      disabled={isSubmitting}
+                      className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:opacity-90 transition-all disabled:opacity-50"
                     >
-                      Send Message
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </button>
                   </form>
                 )}
