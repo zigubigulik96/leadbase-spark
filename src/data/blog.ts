@@ -17,41 +17,24 @@ export const blogPosts: BlogPost[] = [
     date: "2026-02-28",
     readingTime: "6 min read",
     content: `
-## Why Conversion Rate Matters More Than Traffic
-
-Getting traffic is expensive. Doubling your conversion rate has the same revenue impact as doubling your ad spend — without the extra cost.
-
-## 1. Speed Is Non-Negotiable
-
-Every 100ms of added load time costs you 1% in conversions. Audit your theme, compress images, and remove unused apps.
-
-## 2. Social Proof Above the Fold
-
-Place star ratings, review counts, and trust badges where customers see them before scrolling.
-
-## 3. Simplify Your Navigation
-
-Too many menu items create decision paralysis. Stick to 5–7 top-level links maximum.
-
-## 4. Use Urgency (Honestly)
-
-Countdown timers and low-stock alerts work — but only when they're real. Fake urgency destroys trust.
-
-## 5. Optimize Your Product Pages
-
-High-quality images, clear pricing, benefit-driven descriptions, and prominent Add to Cart buttons.
-
-## 6. Reduce Cart Abandonment
-
-Offer guest checkout, show shipping costs early, and send abandoned cart emails within 1 hour.
-
-## 7. A/B Test Everything
-
-Don't guess. Test headlines, CTAs, images, and layouts. Small changes compound over time.
-
-## Need Help?
-
-Lead Base specializes in Shopify CRO improvements. We audit your store, identify the biggest opportunities, and implement changes that move the needle.
+<h2>Why Conversion Rate Matters More Than Traffic</h2>
+<p>Getting traffic is expensive. Doubling your conversion rate has the same revenue impact as doubling your ad spend — without the extra cost.</p>
+<h2>1. Speed Is Non-Negotiable</h2>
+<p>Every 100ms of added load time costs you 1% in conversions. Audit your theme, compress images, and remove unused apps.</p>
+<h2>2. Social Proof Above the Fold</h2>
+<p>Place star ratings, review counts, and trust badges where customers see them before scrolling.</p>
+<h2>3. Simplify Your Navigation</h2>
+<p>Too many menu items create decision paralysis. Stick to 5–7 top-level links maximum.</p>
+<h2>4. Use Urgency (Honestly)</h2>
+<p>Countdown timers and low-stock alerts work — but only when they're real. Fake urgency destroys trust.</p>
+<h2>5. Optimize Your Product Pages</h2>
+<p>High-quality images, clear pricing, benefit-driven descriptions, and prominent Add to Cart buttons.</p>
+<h2>6. Reduce Cart Abandonment</h2>
+<p>Offer guest checkout, show shipping costs early, and send abandoned cart emails within 1 hour.</p>
+<h2>7. A/B Test Everything</h2>
+<p>Don't guess. Test headlines, CTAs, images, and layouts. Small changes compound over time.</p>
+<h2>Need Help?</h2>
+<p>Lead Base specializes in Shopify CRO improvements. We audit your store, identify the biggest opportunities, and implement changes that move the needle.</p>
     `,
   },
   {
@@ -62,39 +45,27 @@ Lead Base specializes in Shopify CRO improvements. We audit your store, identify
     date: "2026-02-15",
     readingTime: "8 min read",
     content: `
-## Before You Touch Any Code
-
-Always duplicate your theme before making changes. Work on the copy, test thoroughly, then publish.
-
-## Understanding Shopify's Theme Architecture
-
-Shopify themes use Liquid, HTML, CSS, and JavaScript. Liquid is the templating language that connects your store data to your frontend.
-
-## Safe Customization Strategies
-
-### Use Theme Settings First
-
-Before writing custom code, check if your theme's built-in settings can achieve what you want. Most modern themes are highly configurable.
-
-### CSS-Only Changes
-
-Many visual changes can be made with CSS alone. This is the safest approach — you're adding styles without modifying template logic.
-
-### Section and Block Development
-
-For more complex changes, create custom sections. This keeps your code modular and doesn't touch existing templates.
-
-## Common Mistakes to Avoid
-
-- Editing the live theme directly
-- Not testing on mobile
-- Hardcoding values that should be dynamic
-- Ignoring performance impact
-- Not backing up before changes
-
-## When to Hire a Professional
-
-If you need structural changes, custom functionality, or performance optimization, working with a Shopify development partner saves time and reduces risk.
+<h2>Before You Touch Any Code</h2>
+<p>Always duplicate your theme before making changes. Work on the copy, test thoroughly, then publish.</p>
+<h2>Understanding Shopify's Theme Architecture</h2>
+<p>Shopify themes use Liquid, HTML, CSS, and JavaScript. Liquid is the templating language that connects your store data to your frontend.</p>
+<h2>Safe Customization Strategies</h2>
+<h3>Use Theme Settings First</h3>
+<p>Before writing custom code, check if your theme's built-in settings can achieve what you want. Most modern themes are highly configurable.</p>
+<h3>CSS-Only Changes</h3>
+<p>Many visual changes can be made with CSS alone. This is the safest approach — you're adding styles without modifying template logic.</p>
+<h3>Section and Block Development</h3>
+<p>For more complex changes, create custom sections. This keeps your code modular and doesn't touch existing templates.</p>
+<h2>Common Mistakes to Avoid</h2>
+<ul>
+  <li>Editing the live theme directly</li>
+  <li>Not testing on mobile</li>
+  <li>Hardcoding values that should be dynamic</li>
+  <li>Ignoring performance impact</li>
+  <li>Not backing up before changes</li>
+</ul>
+<h2>When to Hire a Professional</h2>
+<p>If you need structural changes, custom functionality, or performance optimization, working with a Shopify development partner saves time and reduces risk.</p>
     `,
   },
   {
@@ -105,31 +76,19 @@ If you need structural changes, custom functionality, or performance optimizatio
     date: "2026-01-30",
     readingTime: "7 min read",
     content: `
-## The Shopify App Ecosystem in 2026
-
-Shopify's platform has matured significantly. With over 2 million merchants and a thriving app ecosystem, the opportunities for developers are bigger than ever.
-
-## Key Changes This Year
-
-### Checkout Extensibility Is Now Standard
-
-Post-purchase pages, custom checkout UI, and payment customizations are all built on Shopify's extensibility framework.
-
-### AI-Powered Features
-
-Shopify's Sidekick and Magic features have raised merchant expectations. Apps that leverage AI for recommendations, content generation, and automation are winning.
-
-### Performance Requirements
-
-Shopify now penalizes slow apps in search rankings. Keep your app's impact under 50ms and you'll stand out.
-
-## Building for Success
-
-Focus on solving one problem exceptionally well. The most successful Shopify apps are laser-focused on a specific use case.
-
-## Our Approach at Lead Base
-
-We build every app with three principles: performance first, merchant experience second, and scalability third. Every feature gets tested against real store data before launch.
+<h2>The Shopify App Ecosystem in 2026</h2>
+<p>Shopify's platform has matured significantly. With over 2 million merchants and a thriving app ecosystem, the opportunities for developers are bigger than ever.</p>
+<h2>Key Changes This Year</h2>
+<h3>Checkout Extensibility Is Now Standard</h3>
+<p>Post-purchase pages, custom checkout UI, and payment customizations are all built on Shopify's extensibility framework.</p>
+<h3>AI-Powered Features</h3>
+<p>Shopify's Sidekick and Magic features have raised merchant expectations. Apps that leverage AI for recommendations, content generation, and automation are winning.</p>
+<h3>Performance Requirements</h3>
+<p>Shopify now penalizes slow apps in search rankings. Keep your app's impact under 50ms and you'll stand out.</p>
+<h2>Building for Success</h2>
+<p>Focus on solving one problem exceptionally well. The most successful Shopify apps are laser-focused on a specific use case.</p>
+<h2>Our Approach at Lead Base</h2>
+<p>We build every app with three principles: performance first, merchant experience second, and scalability third. Every feature gets tested against real store data before launch.</p>
     `,
   },
   {
@@ -140,28 +99,21 @@ We build every app with three principles: performance first, merchant experience
     date: "2026-01-15",
     readingTime: "5 min read",
     content: `
-## The Psychology Behind Free Shipping Bars
-
-Customers hate paying for shipping more than they hate paying more for products. A shipping bar taps into this by showing how close they are to free shipping.
-
-## Setting the Right Threshold
-
-Your free shipping threshold should be 20–30% above your current average order value. This is the sweet spot that motivates without discouraging.
-
-## Design Best Practices
-
-- Use contrasting colors that stand out
-- Show progress with a visual bar
-- Celebrate when the threshold is reached
-- Keep the message concise
-
-## Measuring Success
-
-Track these metrics before and after implementation: average order value, conversion rate, cart abandonment rate, and free shipping redemption rate.
-
-## Quick Setup
-
-With Shipping Bar Pro, you can set up a geo-targeted, fully customizable shipping bar in under 5 minutes. No code required.
+<h2>The Psychology Behind Free Shipping Bars</h2>
+<p>Customers hate paying for shipping more than they hate paying more for products. A shipping bar taps into this by showing how close they are to free shipping.</p>
+<h2>Setting the Right Threshold</h2>
+<p>Your free shipping threshold should be 20–30% above your current average order value. This is the sweet spot that motivates without discouraging.</p>
+<h2>Design Best Practices</h2>
+<ul>
+  <li>Use contrasting colors that stand out</li>
+  <li>Show progress with a visual bar</li>
+  <li>Celebrate when the threshold is reached</li>
+  <li>Keep the message concise</li>
+</ul>
+<h2>Measuring Success</h2>
+<p>Track these metrics before and after implementation: average order value, conversion rate, cart abandonment rate, and free shipping redemption rate.</p>
+<h2>Quick Setup</h2>
+<p>With Shipping Bar Pro, you can set up a geo-targeted, fully customizable shipping bar in under 5 minutes. No code required.</p>
     `,
   },
   {
@@ -172,42 +124,28 @@ With Shipping Bar Pro, you can set up a geo-targeted, fully customizable shippin
     date: "2026-01-02",
     readingTime: "9 min read",
     content: `
-## Why Clean Liquid Code Matters
-
-Messy Liquid code leads to slow stores, hard-to-debug issues, and expensive maintenance. Clean code pays for itself.
-
-## Core Principles
-
-### 1. Use Snippets for Reusable Components
-
-Don't repeat yourself. Extract common patterns into snippets and render them with parameters.
-
-### 2. Minimize Liquid Logic in Templates
-
-Complex logic belongs in sections or snippets, not in your main templates. Keep templates clean and readable.
-
-### 3. Use Schema Settings
-
-Let merchants customize through the theme editor instead of hardcoding values. This makes your theme more flexible.
-
-### 4. Optimize Loops
-
-Avoid nested loops when possible. Use Liquid filters to reduce iterations and improve performance.
-
-### 5. Cache API Calls
-
-If you're making API calls in Liquid, cache the results to avoid repeated requests on every page load.
-
-## Performance Tips
-
-- Lazy load images below the fold
-- Use responsive images with srcset
-- Minimize inline scripts
-- Use defer/async for external scripts
-
-## Testing Your Code
-
-Always test on multiple devices, browsers, and with different product catalogs. Edge cases in Shopify are common.
+<h2>Why Clean Liquid Code Matters</h2>
+<p>Messy Liquid code leads to slow stores, hard-to-debug issues, and expensive maintenance. Clean code pays for itself.</p>
+<h2>Core Principles</h2>
+<h3>1. Use Snippets for Reusable Components</h3>
+<p>Don't repeat yourself. Extract common patterns into snippets and render them with parameters.</p>
+<h3>2. Minimize Liquid Logic in Templates</h3>
+<p>Complex logic belongs in sections or snippets, not in your main templates. Keep templates clean and readable.</p>
+<h3>3. Use Schema Settings</h3>
+<p>Let merchants customize through the theme editor instead of hardcoding values. This makes your theme more flexible.</p>
+<h3>4. Optimize Loops</h3>
+<p>Avoid nested loops when possible. Use Liquid filters to reduce iterations and improve performance.</p>
+<h3>5. Cache API Calls</h3>
+<p>If you're making API calls in Liquid, cache the results to avoid repeated requests on every page load.</p>
+<h2>Performance Tips</h2>
+<ul>
+  <li>Lazy load images below the fold</li>
+  <li>Use responsive images with srcset</li>
+  <li>Minimize inline scripts</li>
+  <li>Use defer/async for external scripts</li>
+</ul>
+<h2>Testing Your Code</h2>
+<p>Always test on multiple devices, browsers, and with different product catalogs. Edge cases in Shopify are common.</p>
     `,
   },
 ];

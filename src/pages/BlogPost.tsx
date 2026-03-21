@@ -12,23 +12,7 @@ export default function BlogPost() {
 
   const related = allPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
-  // Simple markdown-to-html for ## headings and paragraphs
-  const renderContent = (content: string) => {
-    return content.split("\n").map((line, i) => {
-      const trimmed = line.trim();
-      if (!trimmed) return null;
-      if (trimmed.startsWith("## ")) {
-        return <h2 key={i} className="font-heading text-xl font-bold text-foreground mt-8 mb-3">{trimmed.slice(3)}</h2>;
-      }
-      if (trimmed.startsWith("### ")) {
-        return <h3 key={i} className="font-heading text-lg font-semibold text-foreground mt-6 mb-2">{trimmed.slice(4)}</h3>;
-      }
-      if (trimmed.startsWith("- ")) {
-        return <li key={i} className="text-muted-foreground ml-4 list-disc">{trimmed.slice(2)}</li>;
-      }
-      return <p key={i} className="text-muted-foreground leading-relaxed mb-3">{trimmed}</p>;
-    });
-  };
+
 
   if (isLoading) {
     return (
@@ -86,7 +70,10 @@ export default function BlogPost() {
               </div>
             )}
             <div className="mt-8 border-t border-border pt-8">
-              {renderContent(post.content)}
+              <div 
+                className="prose prose-sm sm:prose-base dark:prose-invert max-w-none prose-headings:font-heading prose-headings:text-foreground prose-headings:font-semibold prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-p:text-muted-foreground prose-p:leading-relaxed prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-foreground prose-strong:font-semibold prose-hr:border-border prose-ul:text-muted-foreground prose-li:text-muted-foreground marker:text-muted-foreground prose-li:marker:text-primary" 
+                dangerouslySetInnerHTML={{ __html: post.content }} 
+              />
             </div>
           </FadeIn>
 

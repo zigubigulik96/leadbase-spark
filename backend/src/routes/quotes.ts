@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { z } from "zod";
 import { db } from "../db/index.js";
 import { quotes } from "../db/schema.js";
+import { sendQuoteEmail } from "../services/email.js";
 
 const QuoteSchema = z.object({
     name: z.string().trim().min(1).max(100),
@@ -30,6 +31,14 @@ export async function quotesRoutes(app: FastifyInstance) {
                 budget: data.budget || null,
                 timeline: data.timeline || null,
             });
+
+            // Send email notification
+            try {
+                await sendQuoteEmail(data);
+            } catch (emailError) {
+                console.error("Failed to send email notification:", emailError);
+                // We logicially continue because the data is saved in DB
+            }
 
             return reply.send({ success: true });
         } catch (error) {
